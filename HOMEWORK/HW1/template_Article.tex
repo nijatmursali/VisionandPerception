@@ -1,0 +1,338 @@
+\documentclass[]{article}
+
+%opening
+\title{Vision and Perception}
+\author{Nijat Mursali}
+\usepackage{tikz}
+\usetikzlibrary{calc,intersections,through,backgrounds}
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+	This document is used to illustrate all the homework exercises that has been given during Vision and Perception course in 2020/21. There are overall 10 exercises that needed to be done during this time. 
+
+
+\end{abstract}
+
+\section{Homework 1 - Degenerate Conic}
+As mentioned during the video of Geometric Parameters, we needed to compute the $M_{2}$ as we did for $M_{1}$ and then computing the null space of $M_{1}$ and verifying that is 2, then computing the cross product of null space vectors and after normalizing to obtain the $x_{3} = 1$, we needed to think about the result.
+\vspace{0.4em}
+
+The idea is here space of $M_{1}$ and verifying that is 2, then computing the cross product of null space vectors and after normalizing to obtain the $x_{3} = 1$, we needed to think about the result.	
+
+\begin{tikzpicture}
+\draw (-1.5, 0) coordinate(A) -- (2,0.2) coordinate (B) node [black, scale=1] {$l_{1}$};
+\draw (-1,-1) coordinate(C) -- (1.5,1.5) coordinate (D) node [black, scale=1] {$l_{2}$};
+\node[red,scale=3] at (intersection of  A--B and C--D){.};
+\end{tikzpicture}
+
+Thus, we need to consider the two intersecting lines that we have seen in our lecture: 
+
+$l_{1} = (0.2500, 3.200, 1.0000)^T$  
+
+$l_{2} = (-2.0000, 0.5000, 1.0000)^T$ 
+
+$x = l_{1}xl_{2} = (-0.4138, 0.3448, 1.0000)^T$
+\vspace{0.2em}
+
+$M_{1} = l_{1}l_{1}^T = 
+\left( {\begin{array}{*{20}c}
+	0.0625 & 0.8000 & 0.2500 \\
+	0.8000 & 10.2400 & 3.2000 \\
+	0.2500 &  3.2000 & 1.0000   
+	\end{array} } \right)
+$
+
+Thus, by computing the degenerate conic for $l_{2}$, we could get something following:
+
+$M_{2} = l_{2}l_{2}^T = 
+\left( {\begin{array}{*{20}c}
+	4.0000 & -1.0000 & -2.0000 \\
+	-1.0000 & 0.2500 & 0.5000 \\
+	-2.0000 &  0.5000 & 1.0000   
+	\end{array} } \right)
+$
+
+As we see from the book, the null space can be computed by span as following:
+
+\centerline {$Null(M_{1}) = Span\{\left( {\begin{array}{*{20}c}
+	0.2210 \\
+	0.2751 \\
+	-0.9357  
+	\end{array} } \right),\left( {\begin{array}{*{20}c}
+	-0.9724 \\
+	 0.1353 \\
+	-0.1899  
+	\end{array} } \right) \}$ }
+
+and 
+
+\centerline { $Null(M_{2}) = Span\{\left( {\begin{array}{*{20}c}
+	0 \\
+	0.8944 \\
+	-0.4472  
+	\end{array} } \right),\left( {\begin{array}{*{20}c}
+	-0.4880 \\
+	-0.3904 \\
+	-0.7807  
+	\end{array} } \right) \}$ }
+
+Finally, we need to calculate the cross-product of the null-space components of $M_{1}$ as:
+
+$M_{1} = (0.2210, 0.2751, -0.9357)x(-0.9724, 0.1353, -0.18,99) = (0.0744, 0.9518, 0.2974)^T$
+\vspace{0.2em}
+then, for $M_{2}$ it will be like:
+\vspace{0.2em}
+
+$M_{2} = (0, 0.8944 - 0.4472) x (-0.4880, -0.3904, -0.7807) = (-.8728, 0.2182, 0.4365)^T$
+
+We come up to the result that these two results are no more than the original lines, $l_{1}$ and $l_{2}$ with unitary norm.  
+
+\section{Homework 2 - Five Points Define a Conic}
+For each point the conic passes through 
+
+\centerline {$ax_{i}^2 + bx_{i}y_{i} + cy_{i}^2 + dx_{i} + ey_{i} + f = 0$ }
+\vspace{0.4em}
+
+As we see from the equation, we need to determine the parameters of the equation with at least five points. So, for this homework we just chose 4 points in xy plane with different values, thus we have the following set of equations:
+
+\centerline {
+	$\left[ {\begin{array}{*{20}c}
+			0 & 0 & 16 & 0 & 4 & 1 \\
+			1 & 1 & 1  & 1 & 1 & 1 \\
+			9 & 24 & 64  & 3 & 8 & 1 \\
+			36 & 36 & 36  & 6 & 6 & 1 \\
+			49 & 21 & 9  & 7 & 3 & 1\\   
+	\end{array} } \right] 
+	\left[ {\begin{array}{*{20}c}
+			a \\ 
+			b \\ 
+			c \\ 
+			d \\ 
+			e \\ 
+			f    
+	\end{array} } \right] = 0 $
+}
+
+from which we obtain the following values:
+
+\centerline {
+	$a = 0.0876$, $b = 0.0258$, $c = 0.0532$, $d = -0.7038$, $e = -0.4629$, $f = 1$,  
+}
+
+thus giving us following result:
+
+\section{Homework 3 - Compute the DLT algorithm}
+In order to solve this problem, we needed to take one picture and apply the algorithm to check the coordinates of the shape. The idea is to pick 4 points on two different images by hand and apply the DLT algorithm showing the calculations. Additionally, the point selection is arbitrary. 
+
+\section{Homework 4 - Affine Transformations}
+The task for this exercise is to show that an affine transformation preserves both parallel lines and area. 
+\section{Homework 5 - Homography keeps lines tangent to conics}
+
+\section{Homework 6 - SVD for given matrix}
+As we have seen from the example, the matrix A which we out to decompose is the following: 
+
+\centerline{ $A = \left[ {\begin{array}{*{20}c}
+		2 & 3 & 1 \\
+		1 & 4 & -2   
+		\end{array} } \right]$ }
+	
+The singular value decomposition (SVD) property proposes that any given matrix can be decomposed in three matrices that is:
+
+\centerline { $A = U \Sigma V^T$}
+
+where $\Sigma$ is a rectangular diagonal matrix and, $U$ and $V^T$ are orthogonal matrices. To obtain these matrices, we first compute the product $A^TA$ as following:
+
+\centerline {
+	$A^TA = (U \Sigma V^T)^T U \Sigma V^T = V (\Sigma^T \Sigma)V^T $ 
+}
+which will be equal to 
+
+\centerline{ $A^TA = \left[ {\begin{array}{*{20}c}
+		5 & 10 & 0 \\
+		10 & 25 & -5 \\ 
+		0 & -5 & 5   
+		\end{array} } \right]$ }
+	
+from this relation, we extract the eigenvalues of $A^TA$ as follows:
+	
+\centerline {
+	$(A^TA - I \lambda) x = 0$
+}
+
+in which, in order to obtain a non-trivial solution, the following property must hold:
+
+\centerline {
+	$det(A^TA - I \lambda) = 0$
+}
+
+which gives the following equation:
+
+\centerline {
+	$(5- \lambda) (25 - \lambda)(5 - \lambda) - 25(5 - \lambda) - 100(5 - \lambda) = 0 $
+}
+
+From this equation, we arrive at the following solutions: 
+
+\centerline {
+	$\lambda_{1} = 30$, $\lambda_{2} = 5$, $\lambda_{3} = 0$ 
+}
+
+To obtain the eingenvectors, we must find the vectors that lie in the null-space of the resulting matrices once
+each eigenvalue is substituted:
+
+For $\lambda = 30$: 
+
+\centerline{ $\left[ {\begin{array}{*{20}c}
+		-25 & 10 & 0 \\
+		10 & -5 & -5 \\ 
+		0 & -5 & -25   
+		\end{array} } \right] x = 0$,  }
+
+Giving us the following expressions: 
+
+\centerline {
+	$-25x_{1} + 10x_{2} = 0$, 
+}
+\centerline {
+	$10x_{1} - 5x_{2} - 5x_{3} =0$, 
+}
+\centerline {
+	$-5x_{2} - 25x_{3} = 0$	
+}
+
+from this linear set of equations, we arrive at the following solution: 
+
+\centerline {
+	$x = [-1, -2.5, 0.5]^T$,
+}
+
+which is then normalized: 
+
+\centerline {
+	$x = [-0.3651, -0.9129, 0.1826]^T$.
+}
+
+Repeating the same procedure for the other eigenvalues, we arrive at: 
+
+\centerline {
+	$x = [-0.4472, 0, -0.8944]^T$ and $x = [0.8165, -0.4082, -0.4082]^T$
+}
+
+Like so, we obtain the matrix $V$, compose of the column vectors: 
+
+\centerline{ $V = \left[ {\begin{array}{*{20}c}
+		-0.3651 & -0.4472 & 0.8165 \\
+		-0.9129 & 0 & -0.4082 \\ 
+		0.1826 & -0.8944 & -0.4082   
+		\end{array} } \right]$ }
+	
+furthemore, we also obtain the matrix $\lambda$, which is the square root of the diagonal matrix composed of the calculated eigenvalues: 
+
+\section{Homework 7 - Projective Transformation}  
+The task here is to find the projective transformation $H$ and define the type of quadric from the quadric equation.
+
+Firstly, let's clarify some points we have learned in our lectures. 
+
+\centerline {
+	3D point in $R^3$ which is $X = (X, Y, Z)^T$ in $P^3 : (x_1, x_2, x_3, x_4)^T$,
+}
+
+\centerline {
+	Euclidean frame $\pi : ax + by + cz +d = 0$, where
+	$\pi^TX = 0 => (a b c d) ^T\left[ {\begin{array}{*{20}c}
+		x_1 \\
+		x_2 \\ 
+		x_3 \\
+		x_4  
+		\end{array} } \right] = 0$	
+}
+
+Thus, 
+
+\centerline {
+	$X = (X_1, X_2, X_3, X_4)$ derives, 
+}
+\vspace{0.2em}
+\centerline {
+		$X^TAX = 4x_1^2 + 4x_1x_2 - 2x_1x_3 + 2x_1x_4 + 5x_2^2 - 2x_2x_4 + 2x_3^2 + 2x_3x_4 + 2x_4^2 = 0$
+}
+
+Then, we get the following A matrix,
+
+\centerline {
+	$A = a_ia_j = \left[ {\begin{array}{*{20}c}
+		4 & 2 & -1 & 1 \\
+		2 & 5 & 0 & -1 \\ 
+		0 & 0 & 2 &  1 \\
+		0 & 0 & 0 & 2  
+		\end{array} } \right] = 0 $ 
+}
+
+Then from the following equation we are getting the $\lambda$ values. 
+
+\centerline {
+	$|\lambda I - A| = \left[ {\begin{array}{*{20}c}
+		\lambda - 4 & -2 & 1 & -1 \\
+		-2 & \lambda - 5 & 0 & 1 \\ 
+		1 & 0 & \lambda - 2 &  -1 \\
+		-1 & 1 & -1 & \lambda - 2  
+		\end{array} } \right] = 0$
+}
+
+\centerline {
+	$\lambda ^4 - 13 \lambda ^3 + 52 \lambda ^2 - 81 \lambda + 25 = 0$, 
+}
+
+\centerline {
+	$\lambda _1 = 6.6637$, $\lambda _2 = 3.6360$, $\lambda _3 = 2.7153$, $\lambda _4 = -0.0151$
+}
+
+Then, from the matrix we get the $V$ values, 
+
+\centerline {
+	$V_1 = \left[ {\begin{array}{*{20}c}
+		-9.2387 \\
+		-11.7071 \\ 
+		2.1953 \\
+		1  
+		\end{array} } \right]$, 
+	$V_2 = \left[ {\begin{array}{*{20}c}
+		0.9476 \\
+		-0.6564 \\ 
+		0.0319 \\
+		1  
+		\end{array} } \right]$, 
+	$V_3 = \left[ {\begin{array}{*{20}c}
+		-0.5125 \\
+		0.9964 \\ 
+		2.1143 \\
+		1  
+		\end{array} } \right]$,
+	$V_4 = \left[ {\begin{array}{*{20}c}
+		-0.6963 \\
+		0.4770 \\ 
+		-0.8417 \\
+		1  
+		\end{array} } \right]$,  
+}
+
+Then, from the formula of $U_i = AV_i/\sigma _i$, we tried to find the $U$ value and got the following values:
+
+\section{Homework 8 - Point Equations}
+The task here is to define the pairs of point equations for the direction and pair of plane equations for coordinate planes. 
+
+\section{Homework 9 - Equation of Conic}
+
+\section{Homework 10 - Proof for $cos(\alpha)$}  
+ 
+\section{Homework 11 - }
+
+\section{Homework 12 - }
+
+\section{Homework 13 - }
+
+\section{Homework 14 - }
+ 
+\end{document}
