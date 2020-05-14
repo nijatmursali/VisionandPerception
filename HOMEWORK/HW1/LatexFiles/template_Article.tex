@@ -885,7 +885,13 @@ b) For this exercise, we needed to find the translation vector which can be calc
 
 
 \section{Homework 13 - Calibration Device }
-a) Implement a example of a simple calibration device
+\subsection{Implement a example of a simple calibration device}
+
+
+
+\centerline {
+	\includegraphics[scale=0.5]{squares}
+}
 
 The idea here is to take the image of three squares and compute the K. For this, we need to take several steps. Firstly, we need to find the homography H for each square. 
 
@@ -893,7 +899,6 @@ Then, we need to compute the imaged circular points for the plane of that square
 
 
 Before the last step, we need to fit a conic $\omega$ to the six imaged circular points. The constraint that the imaged circular points lie on $\omega$ may be rewritten as two real contrains. If $h_1 \pm ih_2$ lies on $\omega$ then $(h_1 \pm ih_2)^T \omega ()h_1 \pm ih_2) = 0$, and the imaginary and real parts give respectively: 
-
 
 \centerline {
 	$h_1^T \omega h_2 = 0$ and $h_1^T \omega h_1 = h_2^T \omega h_2$
@@ -906,11 +911,223 @@ Finally, we need to compute the calibration $K$ from $\omega = (KK^T)-1$ using t
 
 \vspace{0.4em}
 
-b) Vanishing points  
+Thus, for the first step, we used OpenCV library in order to get the corners of the squares. The points are as following:
+
+\centerline {
+		$S_1 =\left[ {\begin{array}{*{20}c}
+		77.7704 & 75.5438 & 1.0 \\
+		111.0461 & 208.2040 & 1.0  \\ 
+		246.7895 & 165.1987 & 1.0 \\
+		243.4158 & 38.8666 & 1.0  
+		\end{array} } \right] $, $S_2 =\left[ {\begin{array}{*{20}c}
+		302.4889 & 42.3844 & 1.0 \\
+		301.1318 & 164.1352 & 1.0  \\ 
+		423.8295 & 229.9800 & 1.0 \\
+		452.5454 & 100.7878 & 1.0  
+		\end{array} } \right] $
+}
+
+and the last square's coordinates are: 
+
+\centerline {
+	$S_3 =\left[ {\begin{array}{*{20}c}
+		250.2883 & 197.7703 & 1.0 \\
+		174.3199 & 164.1352 & 1.0  \\ 
+		423.8295 & 229.9800 & 1.0 \\
+		348.1797 & 362.9188 & 1.0  
+		\end{array} } \right] $
+}
+
+Then, we needed to find the homographies, and we have done it also using the library which gave overall three homographies. 
+
+\vspace{0.5em}
+
+\centerline {
+	$H_1 =\left[ {\begin{array}{*{20}c}
+		1.09317181e-03 & 4.96735473e-03 & -4.61466910e-01 \\
+		4.28243203e-03 & -1.13379462e-03 & -2.42372406e-01  \\ 
+		-8.34657587e-04 & -1.04738101e-03 & 1.00000000e+00 
+		\end{array} } \right] $
+}
+
+\vspace{0.5em}
+
+\centerline {
+	$H_2 =\left[ {\begin{array}{*{20}c}
+		-4.38946955e-03 & 1.28792782e-02 & 7.44873229e-01 \\
+		1.49341334e-02 & -1.30224096e-04 & -4.48894349e+00  \\ 
+		3.27712794e-03 & -2.49170706e-03 & 1.00000000e+00
+		\end{array} } \right] $
+}
+
+\vspace{0.5em}
 
 
+\centerline {
+	$H_3 =\left[ {\begin{array}{*{20}c}
+		-4.73274525e-03 & 1.87530587e-02 & -2.50705370e+00 \\
+		1.22991572e-02 & 8.54371755e-03 & -4.48894349e+00  \\ 
+		2.36397229e-04 & 4.24985472e-03 & 1.00000000e+00
+		\end{array} } \right] $
+}
+
+Then, we had to find the $\omega$ which we found by A matrix which is found by the columns of $H$ matrix. We have found the $\omega$ as:
+
+\vspace{0.5em}
+
+\centerline {
+	$ \omega =\left[ {\begin{array}{*{20}c}
+		0.00000000e+00 \\
+		7.07106781e-01 \\
+		1.11022302e-16 \\
+		1.00613962e-16 \\ 
+		-7.07106781e-01 \\
+		-5.32072216e-16
+		\end{array} } \right] $
+}
+
+Then, we have divided the $\omega$ with Numpy array into three conics and stored it into the array to find the Cholensky factorization. We have got the new matrix as following:
+
+\vspace{0.5em}
+
+\centerline {
+	$ W =\left[ {\begin{array}{*{20}c}
+		5.15012402e-01 & 7.07106781e-01 & 1.00613962e-16 \\
+		7.07106781e-01 & 1.11022302e-16 & 2.55616781e-01\\
+		1.00613962e-16 & 5.42056781e-05 & 3.45077216e-16 
+		\end{array} } \right] $
+}
+
+\vspace{0.5em}
+
+Finally, using the Cholensky factorization (with \textit{np.linalg}), we have computed the $K$ as following:
+
+\vspace{0.5em}
+
+\centerline {
+	$ K =\left[ {\begin{array}{*{20}c}
+		1067.7 & -10.4 & 514.3 \\
+		0 & 1075.5 & 386.4 \\
+		0 & 0 & 1 
+		\end{array} } \right] $
+}
+
+\vspace{0.5em}
 
 
-\section{Homework 14 - }
- 
+\subsection{Implement Vanishing Points}
+
+Firstly, vanishing point is the image of a point at infinity. Since parallel lines intersect at infinity, the intersection of parallel lines in the image is the vanishing point. As a result, we can two parallel lines, and find the intersection in the image, and the intersection is one vanishing points. Repeat this process, we can find a second and third vanishing point.
+
+As we have discussed in class, there can be several vanishing in an image, depending on where the images were taken. It's also dependent on how many objects you have in the image. In order to find the vanishing points, you need to have several steps in mind: \\
+
+1. remember that all parallel lines will meet in a vanishing point
+
+2. know which lines in the image are really parallel \\ 
+
+For example, in the following picture we have found three vanishing points. 
+
+\vspace{0.5em}
+
+\centerline {
+	\includegraphics[scale=0.4]{vanishing}
+}
+
+\section{Homework 14 - Computing the DLT Algorithm}
+
+The task here was to build a reference shape for calibration as a check-board typically checker-board must not be square. One side must contain an even number of squares and the other side must contain an odd number of squares. We need to measure the dimension of the check-board square. 
+
+Using the harry corner detector, we first found the corners and added them into our code for further computation. At this stage, we get the matrix as following: 
+
+\vspace{0.5em}
+
+\centerline {
+	$ x =\left[ {\begin{array}{*{20}c}
+		439 & 645 & 219 & 647 & 228 & 24 & 439 & 439 \\
+		212 & 410 & 1232 & 606 & 802 & 403 & 1227 & 407 \\
+		1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 &  
+		\end{array} } \right] $
+}
+
+\vspace{0.5em}
+
+When we normalize the matrices (by checking for ratios), we get the following results: 
+
+\vspace{0.5em}
+
+\centerline {
+	$ X =\left[ {\begin{array}{*{20}c}
+		6 & 9 & 3 & 9 & 3 & 0 & 6 & 6 \\
+		3 & 6 & 18 & 9 & 12 & 6 & 18 & 6 \\
+		1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 &  
+		\end{array} } \right] $
+}
+
+\vspace{0.5em}
+
+The next step was to compute the A matrix using the points we have got, but before that we needed to get the correspondences of the coordination points. When, we computed them we also computed the A matrix which had overall 12 columns. 
+
+Then, we have tried to compute $H$ by $H=AA^T$, as our A matrix had 12 columns, when we multiply it with it's transpose it will also give the same columns as $A$. After computing the $H$ matrix, we could get the $V$ by using eigenvectors and after that we could get the $P$ which is the calibration matrix. The following matrix is calibration matrix which is $3 \times 4$:
+
+\vspace{0.5em}
+
+\centerline {
+	$ P =\left[ {\begin{array}{*{20}c}
+		71.6146 & 0.7109 & -6.2692 & 150.9350 \\
+		3.0599 & 67.8655 & -9.5590 & 198.9311 \\
+		0.0039 & 0.0017 & -0.0146 & 1.3056   
+		\end{array} } \right] $
+}
+
+\vspace{0.5em}
+
+As we know from the $Exercise$ $12$, we could find M (which is the first $3 \times 3$ matrix in P) and then we could get the $R$ and $K$ from the QR-decomposition of $M$. The following matrices are $M$, $R$ accordingly. 
+
+\vspace{0.5em}
+
+ \centerline {
+ 	$ M =\left[ {\begin{array}{*{20}c}
+ 		71.6146 & 0.7109 & -6.2692  \\
+ 		3.0599 & 67.8655 & -9.5590  \\
+ 		0.0039 & 0.0017 & -0.0146    
+ 		\end{array} } \right] $, $ R =\left[ {\begin{array}{*{20}c}
+ 		-0.9990 & 0.0426 & -0.00005  \\
+ 		-0.0426 & -0.9990 & -0.00002  \\
+ 		-0.00005 & -0.00002 & 0.9999    
+ 		\end{array} } \right] $
+ }
+
+\vspace{0.5em}
+
+Finally, we could find the $K$ which is the following matrix: 
+
+\vspace{0.5em}
+
+\centerline {
+	$ K =\left[ {\begin{array}{*{20}c}
+		-71.68004 & -3.60745 & 6.67155  \\
+		0.00000 & -67.77329 & 9.28266  \\
+		0.00000 & 0.00000 & -0.01409    
+		\end{array} } \right] $,
+}
+
+\vspace{0.5em}
+
+Finally, it was asked to compute the algebraic and geometric errors and then comparing the results obtained by the DLT with the results obtained with the calibration using the absolute conic. In our case error decreased after every iteration and the table is as follows:
+
+\begin{table}[h!]
+	\begin{center}
+		\label{tab:table1}
+		\begin{tabular}{l|c|r} 
+			$iter$ & $error$ \\
+			\hline
+			1 & 1.53 \\
+			2 & 1.10 \\
+			... & ... \\
+			8 & 0.35 \\
+		\end{tabular}
+	\end{center}
+\end{table}
+
+
 \end{document}
