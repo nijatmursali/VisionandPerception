@@ -148,16 +148,30 @@ In order to solve this problem, we needed to take one picture and apply the algo
 
 Thus, we consider the following picture:
 
+\centerline {
+	\includegraphics[scale=0.4]{src}
+}
+
 The fundamental goal of ours is to apply homography so that the outline shape of object forms a rectangle. The homogeneous coordinates for the shape are:
 
 \centerline {
-	$A = $
+	$A = \left[ {\begin{array}{*{20}c}
+		281.0 & 234.0 & 1.0 \\
+		587.0 & 580.0 & 1.0 \\
+		808.0 & 375.0 & 1.0 \\
+		506.0 & 45.0 & 1.0
+		\end{array} } \right]$
 }
 
 and our target shape has the coordinates: 
 
 \centerline {
-	$B = $
+	$B = \left[ {\begin{array}{*{20}c}
+		172.0 & 347.0 & 1.0 \\
+		566.0 & 580.0 & 1.0 \\
+		763.0 & 340.0 & 1.0 \\
+		336.0 & 166.0 & 1.0
+		\end{array} } \right]$
 }
 
 thus yielding the following equation: 
@@ -166,18 +180,139 @@ thus yielding the following equation:
 	$B = AH$
 }
 
+
 in which we ought to find the homography that produces such transformation. The matrix A is non-square, thus it cannot be inverted, we have to resort to the Direct Linear Transformation algorithm, in which at least three non-co-linear points are used to find the 8 independent terms of the transformation matrix. Since our settings have four points, our system is over determined, from which we derive the following transformation matrix:
 
+\vspace{0.5em}
+
 \centerline {
-	$H = $
+	$H = \left[ {\begin{array}{*{20}c}
+		9.7955 & 2.1074 & -1.4142 \\
+		-3.4637 & 7.1861 & 2.9439 \\
+		-4.2166 & -1.3235 & 1.000
+		\end{array} } \right] $
 }
+
+\vspace{0.5em}
 
 from which we finally obtain the following transformation:
 
+\vspace{0.5em}
+\centerline {
+	\includegraphics[scale=0.4]{out}
+}
 
+\vspace{0.5em}
 
 \section{Homework 4 - Affine Transformations}
-The task for this exercise is to show that an affine transformation preserves both parallel lines and area. Given the exam
+
+The task for this exercise is to show that an affine transformation preserves both parallel lines and area. As we have talked in the lecture, we have: 
+
+\centerline {
+	$l_1 = (0, 1, 1)^T$ and $l_2=(0,2.67,1)^T$
+}
+
+These lines are parallel as they cross-product give us the following:
+
+\centerline {
+	$l_1 \times l_2 = (-1.67, 0, 0)^T$
+}
+
+Points of the two lines can be obtained as follows:
+
+\centerline {
+	$p_1$, $p_2 = Null(l_1)$, 
+}
+
+\centerline {
+	$p_1=(-0.707, 0.500, -0.500)^T$ and $p_2=(-0.707, -0.500, 0.500)$ 
+}
+
+Conversely, 
+
+\centerline {
+	$q_1$, $q_2 = Null(l_2)$, 
+}
+
+\centerline {
+	$q_1=(-0.936, 0.123, -0.328)^T$ and $q_2=(-0.351, -0.328, 0.877)$ 
+}
+
+Given the following transformation parameters: $\alpha = 0.7$, $s_1=1.4$, $s_2=0.9$, $t_x=t_y=1.2$, we obtain the following affine transformation matrix:
+
+\centerline {
+	$H = \left[ {\begin{array}{*{20}c}
+		1.07080 & 0.0618 & 1.2000 \\
+		0.9019 & 1.8825 & 1.2000 \\
+		0 & 0 & 1.0000
+		\end{array} } \right] $
+}
+
+Applying the affine transformation onto the lines, we obtain:
+
+\centerline {
+	$l_1' = l_1H = (0.902, 1.88, 2.20)$ and $l_2' = l_2H = (2.40, 5.02, 4.20)$ 
+}
+
+and so, we verify:
+
+\centerline {
+	$l_1' \times l_2'=(-3.14, 1.51, 0)^T$
+}
+
+Given the last coordinate in 0, we can ascertain that the lines remain parallel after the transformation.
+
+Given the two triangles formed by an arbitrary collection of lines, $l_1, l_2, l_3$ and $l_4$:
+
+
+\centerline {
+	\includegraphics[scale=0.5]{scr4}
+}
+
+where $l_1$ and $l_2$ are parallel. We can calculate the area $S$ of the triangles $A$ and $B$, using Heron's relation:
+
+\centerline {
+	$S_A = \sqrt{s(s-a)(s-b)(s-c)}$
+} 
+
+where s is the semi-perimeter of the triangle $S$.
+
+For triangle A, the relation is as follows:
+
+\centerline {
+	$S_A=\sqrt{s_A(s_A - \overline{p_1p_3})(s_A - \overline{p_1p_2}) (s_A - \overline{p_2p_3})}$
+}
+
+As for triangle $B$, we have:
+
+\centerline {
+	$S_B=\sqrt{s_B(s_B - \overline{p_1p_3})(s_B - \overline{p_1p_2}) (s_B - \overline{p_2p_3})}$
+}
+
+Hence, for both triangles, their respective areas can be simply described by the distance of the intersecting points. Given an arbitrarily affine transformation $H$, that can be described as:
+
+
+
+\centerline{ $H = \left[ {\begin{array}{*{20}c}
+		A & t \\
+		\overrightarrow{0} & 1   
+		\end{array} } \right]$ }
+
+Taking a line segment of each triangles, we can get the ratio as:
+
+\centerline {
+	$\frac{\overline{p_1p_3}}{\overline{q_2q_3}} = \frac{\sqrt{(l_3 \times l_4 - l_1 \times l_3)(l_3 \times l_4 - l_1 \times l_3)}}{\sqrt{(l_3 \times l_4 - l_2 \times l_3)(l_3 \times l_4 - l_2 \times l_3)}}$
+}
+
+If we analyze the ratio's behavior under the transformation H by simply multiplying them with H, we get the following equation: 
+
+\centerline {
+	$\frac{\overline{p_1p_3}'}{\overline{q_2q_3}'} = \frac{\overline{p_1p_3}}{\overline{q_2q_3}}$
+}
+
+This relation can be naturally extended to any two line segments, thus the ratio between the areas of the triangle are also preserved. 
+
+
 \section{Homework 5 - Homography keeps lines tangent to conics}
 Consider the following line $l$, tanget to the conic $C$ at the point $x$, 
 
@@ -201,7 +336,9 @@ From the relation $l = Cx$, we have:
 \centerline {
 	$(H^-1)^Tl = (H^-1)^TCx$,
 }
+
 which can be rewritten to:
+
 \centerline {	
 	$(H^-1)^Tl = (H^-1)^TC(H^-1H)x$.
 }
@@ -666,7 +803,7 @@ For defining planes, we have to find the eigenvectors of $H_E^T$ by:
 
 Thus, we have to find such $\lambda$ that satisfies $det(H_E^T - \lambda I) = 0$
 
-\section{Homework 12 - }
+\section{Homework 12 - Camera Centre }
 
 The camera centre $C$ is the point for which $PC = 0$. Numerically, this right null-vector may be obtained from the SVD of $R$. Algebraically, the centre $C = (X, Y,Z,T)^T$, where 
 
@@ -747,7 +884,7 @@ b) For this exercise, we needed to find the translation vector which can be calc
 }
 
 
-\section{Homework 13 - }
+\section{Homework 13 - Calibration Device }
 a) Implement a example of a simple calibration device
 
 The idea here is to take the image of three squares and compute the K. For this, we need to take several steps. Firstly, we need to find the homography H for each square. 
