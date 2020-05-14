@@ -517,8 +517,35 @@ thus, the conic is represented as following:
 
 \section{Homework 9 - Equation of Conic}
 
+As we know from the lecture: 
 
+\centerline {
+	$\pi : ax + by + cz + d = 0$ and $n(x,y,z)^T + d = 0$
+}
 
+where  $n$ is the normal to the plane computed by $n=(a,b,c)^T$. 
+
+A quadric is a surface in $P3$ defined by the equation 
+ 
+\centerline {
+	$X^TQX = 0$
+}
+
+where $Q$ is a symmetric $4x4$ matrix. 
+
+The intersection of a plane $\pi$ with a quadric $Q$ is a conic. Computing the conic can be tricky because it requires a coordinate system for the plane. As we know, a coordinate system for the plane can be defined by complement space to $\pi$ as 
+
+\centerline {
+	$X= Mx$. 
+}
+
+Points on $\pi$ are on $Q$ if 
+
+\centerline {
+	$X^TQX = x^TM^TQMx = 0$
+}
+
+These points lie on a conic $C$, since $x^TCx = 0$ with $C = M^TQM$.
 \section{Homework 10 - Proof for $cos(\alpha)$}  
 
 Points on the plane at infinity $(\pi _ \infty)$, which may be written as $X_ \infty = (d^T, 0)^T$ are mapped to the image plane by a general camera $P = CR[I|t]$ as 
@@ -664,25 +691,66 @@ Thus, when we decompose the matrix $M$ as $KR$ using QR-decomposition
 For our problem, $M$ and $MC$ equals 
 
 \centerline {
-	$M = $, $MC = $
+	$M = \left[ {\begin{array}{*{20}c}
+		0.6773 & 8.6606 & 7.9236 \\
+		-4.2765 & 5.4432 & 7.8011 \\ 
+		-0.91189 & 0.4426 & 10.4433     
+		\end{array} } \right]$, $MC = \left[ {\begin{array}{*{20}c}
+		-2000000.61370 \\
+		1000 \\ 
+		30.0518     
+		\end{array} } \right] $
 }
 
 Then, we can compute $C$ by
 
-\centerline {
-	$C = $
-}
 
-We get  $C = $
+
+We get  $C$ 
+
+\centerline {
+	$C = [\left[ {\begin{array}{*{20}c}
+		27964.6 &  19.410.2 & 1635.09   
+		\end{array} } \right]^T$
+}
 
 b) For this exercise, we needed to find the translation vector which can be calculated as 
 
 \centerline {
-	$t = -RC$, thus $t = $
+	$t = -RC$, thus $t =[\left[ {\begin{array}{*{20}c}
+		31751.7 \\
+		19688.7 \\ 
+		-15127.2   
+		\end{array} } \right] $
 }
 
 
 \section{Homework 13 - }
+a) Implement a example of a simple calibration device
+
+The idea here is to take the image of three squares and compute the K. For this, we need to take several steps. Firstly, we need to find the homography H for each square. 
+
+Then, we need to compute the imaged circular points for the plane of that square as $H(1, \pm i, 0)^T$. 
+
+
+Before the last step, we need to fit a conic $\omega$ to the six imaged circular points. The constraint that the imaged circular points lie on $\omega$ may be rewritten as two real contrains. If $h_1 \pm ih_2$ lies on $\omega$ then $(h_1 \pm ih_2)^T \omega ()h_1 \pm ih_2) = 0$, and the imaginary and real parts give respectively: 
+
+
+\centerline {
+	$h_1^T \omega h_2 = 0$ and $h_1^T \omega h_1 = h_2^T \omega h_2$
+}
+
+
+which are equations linear in $\omega$. 
+
+Finally, we need to compute the calibration $K$ from $\omega = (KK^T)-1$ using the Cholesky factorization. 
+
+\vspace{0.4em}
+
+b) Vanishing points  
+
+
+
 
 \section{Homework 14 - }
  
