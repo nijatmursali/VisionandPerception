@@ -5,6 +5,7 @@
 \author{Nijat Mursali}
 \usepackage{tikz}
 \usetikzlibrary{calc,intersections,through,backgrounds}
+\usepackage{graphicx}
 \begin{document}
 
 \maketitle
@@ -29,34 +30,41 @@ The idea is here space of $M_{1}$ and verifying that is 2, then computing the cr
 
 Thus, we need to consider the two intersecting lines that we have seen in our lecture: 
 
+\centerline {
 $l_{1} = (0.2500, 3.200, 1.0000)^T$  
-
 $l_{2} = (-2.0000, 0.5000, 1.0000)^T$ 
+}
 
-$x = l_{1}xl_{2} = (-0.4138, 0.3448, 1.0000)^T$
-\vspace{0.2em}
+\centerline {
+	$x = l_{1}xl_{2} = (-0.4138, 0.3448, 1.0000)^T$
+}
 
+\vspace{0.5em}
+
+\centerline {
 $M_{1} = l_{1}l_{1}^T = 
 \left( {\begin{array}{*{20}c}
 	0.0625 & 0.8000 & 0.2500 \\
 	0.8000 & 10.2400 & 3.2000 \\
 	0.2500 &  3.2000 & 1.0000   
-	\end{array} } \right)
-$
+	\end{array} } \right)$
+}
 
 Thus, by computing the degenerate conic for $l_{2}$, we could get something following:
 
+\centerline {
 $M_{2} = l_{2}l_{2}^T = 
 \left( {\begin{array}{*{20}c}
 	4.0000 & -1.0000 & -2.0000 \\
 	-1.0000 & 0.2500 & 0.5000 \\
 	-2.0000 &  0.5000 & 1.0000   
-	\end{array} } \right)
-$
+	\end{array} } \right)$
+}
 
 As we see from the book, the null space can be computed by span as following:
 
-\centerline {$Null(M_{1}) = Span\{\left( {\begin{array}{*{20}c}
+\centerline {
+	$Null(M_{1}) = Span\{\left( {\begin{array}{*{20}c}
 	0.2210 \\
 	0.2751 \\
 	-0.9357  
@@ -64,7 +72,8 @@ As we see from the book, the null space can be computed by span as following:
 	-0.9724 \\
 	 0.1353 \\
 	-0.1899  
-	\end{array} } \right) \}$ }
+	\end{array} } \right) \}$ 
+}
 
 and 
 
@@ -95,6 +104,12 @@ For each point the conic passes through
 \centerline {$ax_{i}^2 + bx_{i}y_{i} + cy_{i}^2 + dx_{i} + ey_{i} + f = 0$ }
 \vspace{0.4em}
 
+thus to determine the parameters of the equation, we need at least five points. Consider the following: 
+
+\centerline {
+	\includegraphics[scale=0.5]{scr2}
+}
+
 As we see from the equation, we need to determine the parameters of the equation with at least five points. So, for this homework we just chose 4 points in xy plane with different values, thus we have the following set of equations:
 
 \centerline {
@@ -123,6 +138,9 @@ from which we obtain the following values:
 
 thus giving us following result:
 
+\centerline {
+\includegraphics[scale=0.5]{scr1}
+}
 
 
 \section{Homework 3 - Compute the DLT algorithm}
@@ -159,9 +177,13 @@ from which we finally obtain the following transformation:
 
 
 \section{Homework 4 - Affine Transformations}
-The task for this exercise is to show that an affine transformation preserves both parallel lines and area. 
+The task for this exercise is to show that an affine transformation preserves both parallel lines and area. Given the exam
 \section{Homework 5 - Homography keeps lines tangent to conics}
 Consider the following line $l$, tanget to the conic $C$ at the point $x$, 
+
+\centerline {
+	\includegraphics[scale=0.5]{scr3}
+}
 
 From this property, we know that $l = Cx$ and $x^Tl=x^TCx = 0$. Using the homography $H$ on $x$, we get $x'=Hx$, and to reverse this transformation, we can use the inverse homography $H^-1$. With the aformentioned properties, we can rewrite the equations like so:
 
