@@ -231,7 +231,10 @@ from which we finally obtain the following transformation:
 
 \section{Homework 4 - Affine Transformations}
 
-The task for this exercise is to show that an affine transformation preserves both parallel lines and area. As we have talked in the lecture, we have: 
+The task for this exercise is to show that an affine transformation preserves both parallel lines and area. First of all let's describe what exactly affine transformation is. Affine transformation is a function mapping an affine space onto itself that preserves the dimension of any affine subspaces and also preserves the ratio of the lengths of parallel line segments. Additionally, those sets of parallel affine subspaces still remain the same parallel after an affine transformation and and in this exercise we needed to show that. 
+
+\subsection{Affine transformation preserves parallel lines}
+As we have talked in the lecture, we have: 
 
 \vspace{0.5em}
 
@@ -310,6 +313,8 @@ and so, we verify:
 }
 
 Given the last coordinate in 0, we can ascertain that the lines remain parallel after the transformation.
+
+\subsection{Affine transformation preserves area}
 
 Given the two triangles formed by an arbitrary collection of lines, $l_1, l_2, l_3$ and $l_4$:
 
@@ -837,7 +842,19 @@ thus, the conic is represented as following:
 
 \section{Homework 9 - Equation of Conic}
 
-As we know from the lecture: 
+First of all, as we know a quadric is a surface in $P3$ defined by the equation 
+
+\vspace{0.5em}
+
+\centerline {
+	$X^TQX = 0$
+}
+
+\vspace{0.5em}
+
+where $Q$ is a symmetric $4 \times 4$ matrix. 
+
+It's also clear that plane $\pi$ can be found as following:
 
 \vspace{0.5em}
 
@@ -847,15 +864,7 @@ As we know from the lecture:
 
 \vspace{0.5em}
 
-where  $n$ is the normal to the plane computed by $n=(a,b,c)^T$. 
-
-A quadric is a surface in $P3$ defined by the equation 
- 
-\centerline {
-	$X^TQX = 0$
-}
-
-where $Q$ is a symmetric $4x4$ matrix. 
+where  $n$ is the normal to the plane computed by $n=(a,b,c)^T$ and $a$, $b$, $c$, $d$ are the points. 
 
 The intersection of a plane $\pi$ with a quadric $Q$ is a conic. Computing the conic can be tricky because it requires a coordinate system for the plane. As we know, a coordinate system for the plane can be defined by complement space to $\pi$ as 
 
@@ -874,7 +883,7 @@ Points on $\pi$ are on $Q$ if
 \vspace{0.5em}
 
 These points lie on a conic $C$, since $x^TCx = 0$ with $C = M^TQM$.
-\section{Homework 10 - Proof for $cos(\alpha)$}  
+\section{Homework 10 - Proof for $cos(\theta)$}  
 
 Points on the plane at infinity $(\pi _ \infty)$, which may be written as $X_ \infty = (d^T, 0)^T$ are mapped to the image plane by a general camera $P = CR[I|t]$ as 
 
@@ -893,11 +902,25 @@ Thus, in this case $H = CR$ is the planar homography between $(\pi _ \infty)$ an
 \centerline {
 	$\omega = (CC^T)^-1 = C^-TC^1$
 }
- 
-Like  $(\Omega _ \infty)$, $\omega$ is an imaginary point conic with no real points. It cannot really be observed in an image. $\omega$ is dependent only on the internal parameters of the camera and is independent of the camera's position or orientation. Thus,
-it follows from above that the angle between two rays is given by the simple equation 
 
-The above expression is independent of the choice of the projective coordinate on the image. To see this consider any 2D projective transformation $H$. The points $x_i$ are transformed to $Hx_i$, and $\omega$ transforms to $H^-T \omega H^-1$. Hence, the expression for $cos \omega$ is unchanged. THus it will still be valid for any projective frame. 
+\vspace{0.5em}
+
+We can simply prove this by $\omega = (CR)^{-T} I (CR)^{-1}$ which is lastly equal to $C^{-T}C^{-1}$. 
+
+\vspace{0.5em}
+
+Like  $(\Omega _ \infty)$, $\omega$ is an imaginary point conic with no real points. It cannot really be observed in an image. $\omega$ is dependent only on the internal parameters of the camera and is independent of the camera's position or orientation. Thus,
+it follows from above that the angle between two rays is given by the simple equation:
+
+\vspace{0.5em}
+
+\centerline {
+	$cos \theta = \frac{x_1^T(C^{-T}C^{-1})x_2}{\sqrt{x_1^T(C^{-T}C^{-1})x_x \sqrt{x_2^T(C^{-T}C^{-1})x_2}}} = \frac{x_1^T \omega x_1}{\sqrt{x_1^T \omega x_1} \sqrt{x_2^T \omega x_2}}$
+}
+
+\vspace{0.5em}
+
+The above expression is independent of the choice of the projective coordinate on the image. To see this consider any 2D projective transformation $H$. The points $x_i$ are transformed to $Hx_i$, and $\omega$ transforms to $H^-T \omega H^-1$. Hence, the expression for $cos (\theta)$ is unchanged. Thus, it will still be valid for any projective frame. 
 
 
 \section{Homework 11 - Euclidean Rotation}
@@ -942,7 +965,26 @@ When we consider the Euclidean transformation represented by the matrix
 This is a rotation by $ \theta $ about the z-axis with a zero translation. Geometrically it is evident that the family of XY -planes orthogonal to the rotation axis are simply rotated about the Z -axis by this transformation.
 
 This means that there is a pencil of fixed planes orthogonal to the Z -axis. The planes
-are fixed as sets, but not point-wise as any (finite) point (not on the axis) is rotated in horizontal circles by this Euclidean action. Algebraically, the fixed planes of H are the eigenvectors of $H^T$.
+are fixed as sets, but not point-wise as any (finite) point (not on the axis) is rotated in horizontal circles by this Euclidean action. Algebraically, the fixed planes of H are the eigenvectors of $H^T$. We also need to mention that fixed planes are eigen-vectors of $H_E^T$ which we need to find it in order to define the planes. 
+
+For defining planes, we have to find the eigenvectors of $H_E^T$ by:
+
+\vspace{0.5em}
+
+\centerline {
+	$[H_E^T - \lambda I]v = 0 $ which gives $\left[ {\begin{array}{*{20}c}
+		cos \theta - \lambda & sin \theta & 0 & 0 \\
+		-sin \theta & cos \theta - \lambda & 0 & 0 \\ 
+		0 & 0 & 1 - \lambda & 0 \\ 
+		0 & 0 & 0 & 1 - \lambda   
+		\end{array} } \right] $
+}
+
+\vspace{0.5em}
+
+Thus, we have to find such $\lambda$ that satisfies $det(H_E^T - \lambda I) = 0$
+
+\vspace{0.5em}
 
 Corresponding eigenvectors of $H_E^T$ are 
 
@@ -974,27 +1016,12 @@ Corresponding eigenvectors of $H_E^T$ are
 
 \vspace{0.5em}
 
-The eigenvectors $E_3$ and $E_4$ are degenerate. Thus there is a pencil of fixed planes which is spanned by these eigenvectors. The axis of this pencil is the line of intersection of the the planes (perpendicular to the Z -axis) with $\pi _ \infty$, and the pencil includes $\pi _ \infty$ .
+The eigenvectors $E_3$ and $E_4$ are degenerate. However, $E_1$ and $E_2$ doesn't correspond to real planes. Thus there is a pencil of fixed planes which is spanned by these eigenvectors ($E_3$ and $E_4$). The axis of this pencil is the line of intersection of the the planes (perpendicular to the Z -axis) with $\pi _ \infty$, and the pencil includes $\pi _ \infty$ .
 
 The example also illustrates the connection between the geometry of the projective
-plane, $P_2$ , and projective 3-space, $P_3$ . A plane $\pi$ intersects $\pi _ \infty$ in a line which is the line at infinity,  $l_ \infty$ , of the plane $\pi$. A projective transformation of IP 3 induces a subordinate plane projective transformation on $\pi$.
+plane, $P_2$ , and projective 3-space, $P_3$ . A plane $\pi$ intersects $\pi _ \infty$ in a line which is the line at infinity,  $l_ \infty$ , of the plane $\pi$. A projective transformation of $P3$ induces a subordinate plane projective transformation on $\pi$.
 
-For defining planes, we have to find the eigenvectors of $H_E^T$ by:
-
-\vspace{0.5em}
-
-\centerline {
-	$[H_E^T - \lambda I]v = 0 $ which gives $\left[ {\begin{array}{*{20}c}
-		cos \theta - \lambda & sin \theta & 0 & 0 \\
-		-sin \theta & cos \theta - \lambda & 0 & 0 \\ 
-		0 & 0 & 1 - \lambda & 0 \\ 
-		0 & 0 & 0 & 1 - \lambda   
-		\end{array} } \right] $
-}
-
-\vspace{0.5em}
-
-Thus, we have to find such $\lambda$ that satisfies $det(H_E^T - \lambda I) = 0$
+To conclude the ideas, those planes are span of eigen-vectors and they will not be affected because of transformation (not translation, but rotation).
 
 \section{Homework 12 - Camera Centre }
 
@@ -1061,7 +1088,7 @@ Then, we can compute $C$ by
 We get  $C$ 
 
 \centerline {
-	$C = [\left[ {\begin{array}{*{20}c}
+	$C = \left[ {\begin{array}{*{20}c}
 		27964.6 &  19.410.2 & 1635.09   
 		\end{array} } \right]^T$
 }
@@ -1069,7 +1096,7 @@ We get  $C$
 b) For this exercise, we needed to find the translation vector which can be calculated as 
 
 \centerline {
-	$t = -RC$, thus $t =[\left[ {\begin{array}{*{20}c}
+	$t = -RC$, thus $t =\left[ {\begin{array}{*{20}c}
 		31751.7 \\
 		19688.7 \\ 
 		-15127.2   
