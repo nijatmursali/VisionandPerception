@@ -11,7 +11,7 @@
 \maketitle
 
 \begin{abstract}
-	This document is used to illustrate all the homework exercises that has been given during Vision and Perception course in 2020/21. There are overall 10 exercises that needed to be done during this time. 
+	This document is used to illustrate all the homework exercises that has been given during Vision and Perception course in 2020/21. There are overall 14 exercises that needed to be done during this time. 
 
 
 \end{abstract}
@@ -36,7 +36,7 @@ $l_{2} = (-2.0000, 0.5000, 1.0000)^T$
 }
 
 \centerline {
-	$x = l_{1}xl_{2} = (-0.4138, 0.3448, 1.0000)^T$
+	$x = l_{1} \times l_{2} = (-0.4138, 0.3448, 1.0000)^T$
 }
 
 \vspace{0.5em}
@@ -89,20 +89,43 @@ and
 
 Finally, we need to calculate the cross-product of the null-space components of $M_{1}$ as:
 
-$M_{1} = (0.2210, 0.2751, -0.9357)x(-0.9724, 0.1353, -0.18,99) = (0.0744, 0.9518, 0.2974)^T$
+$M_{1} = (0.2210, 0.2751, -0.9357) \times (-0.9724, 0.1353, -0.18,99) = (0.0744, 0.9518, 0.2974)^T$
 \vspace{0.2em}
 then, for $M_{2}$ it will be like:
 \vspace{0.2em}
 
-$M_{2} = (0, 0.8944 - 0.4472) x (-0.4880, -0.3904, -0.7807) = (-.8728, 0.2182, 0.4365)^T$
+$M_{2} = (0, 0.8944 - 0.4472) \times (-0.4880, -0.3904, -0.7807) = (-.8728, 0.2182, 0.4365)^T$
 
 We come up to the result that these two results are no more than the original lines, $l_{1}$ and $l_{2}$ with unitary norm.  
 
 \section{Homework 2 - Five Points Define a Conic}
-For each point the conic passes through 
+
+As we know for each point the conic passes through
 
 \centerline {$ax_{i}^2 + bx_{i}y_{i} + cy_{i}^2 + dx_{i} + ey_{i} + f = 0$ }
+
 \vspace{0.4em}
+
+or 
+
+\centerline {
+	($x_{i}^2, x_{i}y_{i}, y_{i}^2, x_{i}, y_{i}, f)c = 0$, where $c = (a,b,c,d,e,f)$ 
+}
+
+stacking constraints yields 
+
+
+\centerline {
+	$\left[ {\begin{array}{*{20}c}
+		x_1^2 & x_1y_1 & y_1^2 & x_1 & y_1 & 1 \\
+		x_2^2 & x_2y_2 & y_2^2 & x_2 & y_2 & 1 \\
+		x_3^2 & x_3y_3 & y_3^2 & x_3 & y_3 & 1 \\
+		x_4^2 & x_4y_4 & y_4^2 & x_4 & y_4 & 1 \\
+		x_5^2 & x_5y_5 & y_5^2 & x_5 & y_5 & 1 
+		\end{array} } \right]c = 0$	
+}
+
+
 
 thus to determine the parameters of the equation, we need at least five points. Consider the following: 
 
@@ -146,11 +169,13 @@ thus giving us following result:
 \section{Homework 3 - Compute the DLT algorithm}
 In order to solve this problem, we needed to take one picture and apply the algorithm to check the coordinates of the shape. The idea is to pick 4 points on two different images by hand and apply the DLT algorithm showing the calculations. Additionally, the point selection is arbitrary. 
 
-Thus, we consider the following picture:
+Thus, we consider the following picture where we selected the four points as DLT algorithm stated in order to get 2D point correspondences {$x_i \leftrightarrow  x_i'$}.
 
 \centerline {
 	\includegraphics[scale=0.4]{src}
 }
+
+From the 2D to 2D point correspondences we need to determine 2D homography matrix H such that $x_i' = Hx_i$. 
 
 The fundamental goal of ours is to apply homography so that the outline shape of object forms a rectangle. The homogeneous coordinates for the shape are:
 
@@ -208,37 +233,55 @@ from which we finally obtain the following transformation:
 
 The task for this exercise is to show that an affine transformation preserves both parallel lines and area. As we have talked in the lecture, we have: 
 
+\vspace{0.5em}
+
 \centerline {
 	$l_1 = (0, 1, 1)^T$ and $l_2=(0,2.67,1)^T$
 }
 
+\vspace{0.5em}
+
 These lines are parallel as they cross-product give us the following:
+
+\vspace{0.5em}
 
 \centerline {
 	$l_1 \times l_2 = (-1.67, 0, 0)^T$
 }
 
+\vspace{0.5em}
 Points of the two lines can be obtained as follows:
+
+\vspace{0.5em}
 
 \centerline {
 	$p_1$, $p_2 = Null(l_1)$, 
 }
 
+\vspace{0.5em}
+
 \centerline {
 	$p_1=(-0.707, 0.500, -0.500)^T$ and $p_2=(-0.707, -0.500, 0.500)$ 
 }
 
+\vspace{0.5em}
+
 Conversely, 
+
 
 \centerline {
 	$q_1$, $q_2 = Null(l_2)$, 
 }
+
+\vspace{0.5em}
 
 \centerline {
 	$q_1=(-0.936, 0.123, -0.328)^T$ and $q_2=(-0.351, -0.328, 0.877)$ 
 }
 
 Given the following transformation parameters: $\alpha = 0.7$, $s_1=1.4$, $s_2=0.9$, $t_x=t_y=1.2$, we obtain the following affine transformation matrix:
+
+\vspace{0.5em}
 
 \centerline {
 	$H = \left[ {\begin{array}{*{20}c}
@@ -248,11 +291,17 @@ Given the following transformation parameters: $\alpha = 0.7$, $s_1=1.4$, $s_2=0
 		\end{array} } \right] $
 }
 
+\vspace{0.5em}
+
 Applying the affine transformation onto the lines, we obtain:
+
+\vspace{0.5em}
 
 \centerline {
 	$l_1' = l_1H = (0.902, 1.88, 2.20)$ and $l_2' = l_2H = (2.40, 5.02, 4.20)$ 
 }
+
+\vspace{0.5em}
 
 and so, we verify:
 
@@ -322,26 +371,42 @@ Consider the following line $l$, tanget to the conic $C$ at the point $x$,
 
 From this property, we know that $l = Cx$ and $x^Tl=x^TCx = 0$. Using the homography $H$ on $x$, we get $x'=Hx$, and to reverse this transformation, we can use the inverse homography $H^-1$. With the aformentioned properties, we can rewrite the equations like so:
 
+\vspace{0.5em}
+
 \centerline {
 	$x^TCx = (H^-1x')^TC(H^-1x') = 0$
 }
+\vspace{0.5em}
+
 this, in turn, is equivalent to :
+
+\vspace{0.5em}
 
 \centerline {
 	$x^TCx = x'(H^-1)^TCH^-1x' = x'C'x' = 0$.
 }
 
+\vspace{0.5em}
+
 From the relation $l = Cx$, we have:
+
+\vspace{0.5em}
 
 \centerline {
 	$(H^-1)^Tl = (H^-1)^TCx$,
 }
 
+\vspace{0.5em}
+
 which can be rewritten to:
+
+\vspace{0.5em}
 
 \centerline {	
 	$(H^-1)^Tl = (H^-1)^TC(H^-1H)x$.
 }
+
+\vspace{0.5em}
 
 As we have previously seen: $C' = (H^-1)^TCH^-1$, and so the previous equation becomes:
 
@@ -349,7 +414,11 @@ As we have previously seen: $C' = (H^-1)^TCH^-1$, and so the previous equation b
 	$(H^-1)^Tl = C'Hx$
 }
 
+\vspace{0.5em}
+
 thus finally arriving at:
+
+\vspace{0.5em}
 
 \centerline {
 	$l' = C'x'$
@@ -528,15 +597,44 @@ Thus,
 \centerline {
 	$X = (X_1, X_2, X_3, X_4)$ derives, 
 }
-\vspace{0.2em}
+
+\vspace{0.5em}
+
 \centerline {
 		$X^TAX = 4x_1^2 + 4x_1x_2 - 2x_1x_3 + 2x_1x_4 + 5x_2^2 - 2x_2x_4 + 2x_3^2 + 2x_3x_4 + 2x_4^2 = 0$
 }
 
+\vspace{0.5em}
+
+\centerline {
+	$\sum_{1 \leq i \leq  j \leq 4 }^{4} a_{ij}x_iy_i  = 4*x_1^2 + 2*2x_1x_2 + $ 
+}
+
+\vspace{0.5em}
+
+\centerline {
+	$+ 2 * (-1)x_1x_3 + 2* (1)x_1x_4 + 5*x_2^2 + 2(0)x_2x_3 + 2(-1)x_2x_4 +$
+}
+
+\vspace{0.5em}
+
+\centerline {
+	$+  2*x_3^2 + 2*(-1)x_2x_4 + 2* x_3^2 + 2*(1)x_3x_4 + 2*x_4 = 0$
+}
+
+\vspace{0.5em}
+
 Then, we get the following A matrix,
+
+\vspace{0.5em}
 
 \centerline {
 	$A = a_ia_j = \left[ {\begin{array}{*{20}c}
+		a_{11} & a_{12} & a_{13} & a_{14} \\
+		a_{21} & a_{22} & a_{23} & a_{24} \\ 
+		a_{31} & a_{32} & a_{31} &  a_{34} \\
+		a_{41} & a_{42} & a_{43} & a_{44}  
+		\end{array} } \right] =  \left[ {\begin{array}{*{20}c}
 		4 & 2 & -1 & 1 \\
 		2 & 5 & 0 & -1 \\ 
 		0 & 0 & 2 &  1 \\
@@ -544,7 +642,13 @@ Then, we get the following A matrix,
 		\end{array} } \right] = 0 $ 
 }
 
+\vspace{0.5em}
+
+We also need to remember $Q = U^TDU$ which is equal to $H^TDH$ where U is orthogonal matrix and D is diagonal matrix. 
+
 Then from the following equation we are getting the $\lambda$ values. 
+
+\vspace{0.5em}
 
 \centerline {
 	$|\lambda I - A| = \left[ {\begin{array}{*{20}c}
@@ -555,15 +659,23 @@ Then from the following equation we are getting the $\lambda$ values.
 		\end{array} } \right] = 0$
 }
 
+\vspace{1.0em}
+
 \centerline {
 	$\lambda ^4 - 13 \lambda ^3 + 52 \lambda ^2 - 81 \lambda + 25 = 0$, 
 }
+
+\vspace{1.0em}
 
 \centerline {
 	$\lambda _1 = 6.6637$, $\lambda _2 = 3.6360$, $\lambda _3 = 2.7153$, $\lambda _4 = -0.0151$
 }
 
+\vspace{1.0em}
+
 Then, from the matrix we get the $V$ values, 
+
+\vspace{0.5em}
 
 \centerline {
 	$V_1 = \left[ {\begin{array}{*{20}c}
@@ -592,7 +704,40 @@ Then, from the matrix we get the $V$ values,
 		\end{array} } \right]$,  
 }
 
-Then, from the formula of $U_i = AV_i/\sigma _i$, we tried to find the $U$ value and got the following values:
+\vspace{1.0em}
+
+Then, from the formula of $U_i = \frac{AV_i}{\sigma _i}$, we tried to find the $U$ value and got the following values:
+
+\centerline  {
+	$U_1 = \frac{AV_i}{\sigma _i} = \left[ {\begin{array}{*{20}c}
+		-23.8491 \\
+		-30.312 \\ 
+		5.6681 \\
+		2.5814  
+		\end{array} } \right] $, 	$U_2 = \frac{AV_i}{\sigma _i} = \left[ {\begin{array}{*{20}c}
+		1.6564 \\
+		-1.2517 \\ 
+		0.3620 \\
+		2.0575  
+		\end{array} } \right] $
+}
+
+\vspace{1.0em}
+
+\centerline {
+	$U_3 = \frac{AV_i}{\sigma _i} = \left[ {\begin{array}{*{20}c}
+		-0.3444 \\
+		1.4607 \\ 
+		3.4840 \\
+		1.6768  
+		\end{array} } \right] $, 	$U_4 = \frac{AV_i}{\sigma _i} = \left[ {\begin{array}{*{20}c}
+		-0.0856 \\
+		0.0418 \\ 
+		-0.1043 \\
+		0.1220  
+		\end{array} } \right] $
+}
+
 
 \section{Homework 8 - Point Equations}
 The task here is to define the pairs of point equations for the direction and pair of plane equations for coordinate planes. Thus, for a given homogeneous coordinate system in $P^3$, we have the following set of point equations that define the axes:
@@ -632,6 +777,8 @@ Given the equation of the quadric used in the previous exercise:
 
 which can be rewritten as: 
 
+\vspace{0.5em}
+
 \centerline {
 	$Q = \left[ {\begin{array}{*{20}c}
 		4 & 2 & -1 & 1\\
@@ -641,13 +788,19 @@ which can be rewritten as:
 		\end{array} } \right]$,
 }
 
+\vspace{0.5em}
+
 as well as the following coordinates of a plane: 
+
+\vspace{0.5em}
 
 \centerline {
 	$\pi = (2, 3, 1, 1)^T$
 }
 
 thus giving us the following null space:
+
+\vspace{0.5em}
 
 \centerline {
 	$M_ \pi = \left[ {\begin{array}{*{20}c}
@@ -658,7 +811,11 @@ thus giving us the following null space:
 		\end{array} } \right]$,
 }
 
+\vspace{0.5em}
+
 From the relation of  $C = M_ \pi ^TQM_ \pi$, we obtain the relation for the conic:
+
+\vspace{0.5em}
 
 \centerline {
 	$C = \left[ {\begin{array}{*{20}c}
@@ -668,7 +825,11 @@ From the relation of  $C = M_ \pi ^TQM_ \pi$, we obtain the relation for the con
 		\end{array} } \right]$,
 }
 
+\vspace{0.5em}
+
 thus, the conic is represented as following:
+
+\vspace{0.5em}
 
 \centerline {
 	$C = 2.617x_1^2 + 0.358x_1x_2 + 2.742x_2^2 - 0.718x_1x_3 + 0.679x_2x_3 + 1.973x_3^2$
@@ -678,9 +839,13 @@ thus, the conic is represented as following:
 
 As we know from the lecture: 
 
+\vspace{0.5em}
+
 \centerline {
 	$\pi : ax + by + cz + d = 0$ and $n(x,y,z)^T + d = 0$
 }
+
+\vspace{0.5em}
 
 where  $n$ is the normal to the plane computed by $n=(a,b,c)^T$. 
 
@@ -700,20 +865,30 @@ The intersection of a plane $\pi$ with a quadric $Q$ is a conic. Computing the c
 
 Points on $\pi$ are on $Q$ if 
 
+\vspace{0.5em}
+
 \centerline {
 	$X^TQX = x^TM^TQMx = 0$
 }
+
+\vspace{0.5em}
 
 These points lie on a conic $C$, since $x^TCx = 0$ with $C = M^TQM$.
 \section{Homework 10 - Proof for $cos(\alpha)$}  
 
 Points on the plane at infinity $(\pi _ \infty)$, which may be written as $X_ \infty = (d^T, 0)^T$ are mapped to the image plane by a general camera $P = CR[I|t]$ as 
 
+\vspace{0.5em}
+
 \centerline {
 	$x = PX_ \infty = CR[I|t](d^T, 0)^T = CRd$
 }
 
+\vspace{0.5em}
+
 Thus, in this case $H = CR$ is the planar homography between $(\pi _ \infty)$ and the image plane. Since the absolute conic $(\Omega _ \infty)$ is on $(\pi _ \infty)$, we can compute its image as 
+
+\vspace{0.5em}
 
 \centerline {
 	$\omega = (CC^T)^-1 = C^-TC^1$
@@ -729,9 +904,13 @@ The above expression is independent of the choice of the projective coordinate o
 
 The idea here is that dual conic here the duality is between planes and points. Thus, $Q_ \infty ^*$ is made by planes tangent to $(\Omega _ \infty)$, therefore any plane that belongs to $Q_ \infty ^*$ envelope is tangent to $\Omega$. 
 
+\vspace{0.5em}
+
 \centerline {
 	$\pi = \Omega _ \infty X = \pi ^TQ_ \infty ^* = 0$ 
 }
+
+\vspace{0.5em}
 
 \centerline {
 	$Q_ \infty ^* = \left[ {\begin{array}{*{20}c}
@@ -740,7 +919,11 @@ The idea here is that dual conic here the duality is between planes and points. 
 		\end{array} } \right]$,
 }
 
+\vspace{0.5em}
+
 When we consider the Euclidean transformation represented by the matrix 
+
+\vspace{0.5em}
 
 \centerline {
 	$H_E = \left[ {\begin{array}{*{20}c}
@@ -754,12 +937,16 @@ When we consider the Euclidean transformation represented by the matrix
 		\end{array} } \right] $,
 }
 
+\vspace{0.5em}
+
 This is a rotation by $ \theta $ about the z-axis with a zero translation. Geometrically it is evident that the family of XY -planes orthogonal to the rotation axis are simply rotated about the Z -axis by this transformation.
 
 This means that there is a pencil of fixed planes orthogonal to the Z -axis. The planes
 are fixed as sets, but not point-wise as any (finite) point (not on the axis) is rotated in horizontal circles by this Euclidean action. Algebraically, the fixed planes of H are the eigenvectors of $H^T$.
 
 Corresponding eigenvectors of $H_E^T$ are 
+
+\vspace{0.5em}
 
 \centerline {
 	$E_1 = \left( {\begin{array}{*{20}c}
@@ -785,12 +972,16 @@ Corresponding eigenvectors of $H_E^T$ are
 		\end{array} } \right)$
 }
 
+\vspace{0.5em}
+
 The eigenvectors $E_3$ and $E_4$ are degenerate. Thus there is a pencil of fixed planes which is spanned by these eigenvectors. The axis of this pencil is the line of intersection of the the planes (perpendicular to the Z -axis) with $\pi _ \infty$, and the pencil includes $\pi _ \infty$ .
 
 The example also illustrates the connection between the geometry of the projective
 plane, $P_2$ , and projective 3-space, $P_3$ . A plane $\pi$ intersects $\pi _ \infty$ in a line which is the line at infinity,  $l_ \infty$ , of the plane $\pi$. A projective transformation of IP 3 induces a subordinate plane projective transformation on $\pi$.
 
 For defining planes, we have to find the eigenvectors of $H_E^T$ by:
+
+\vspace{0.5em}
 
 \centerline {
 	$[H_E^T - \lambda I]v = 0 $ which gives $\left[ {\begin{array}{*{20}c}
@@ -800,6 +991,8 @@ For defining planes, we have to find the eigenvectors of $H_E^T$ by:
 		0 & 0 & 0 & 1 - \lambda   
 		\end{array} } \right] $
 }
+
+\vspace{0.5em}
 
 Thus, we have to find such $\lambda$ that satisfies $det(H_E^T - \lambda I) = 0$
 
@@ -1043,8 +1236,8 @@ Using the harry corner detector, we first found the corners and added them into 
 
 \centerline {
 	$ x =\left[ {\begin{array}{*{20}c}
-		439 & 645 & 219 & 647 & 228 & 24 & 439 & 439 \\
-		212 & 410 & 1232 & 606 & 802 & 403 & 1227 & 407 \\
+		454 & 663 & 238 & 658 & 237 & 25 & 442 & 445 \\
+		236 & 442 & 1382 & 623 & 814 & 442 & 1317 & 412 \\
 		1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 &  
 		\end{array} } \right] $
 }
@@ -1067,15 +1260,15 @@ When we normalize the matrices (by checking for ratios), we get the following re
 
 The next step was to compute the A matrix using the points we have got, but before that we needed to get the correspondences of the coordination points. When, we computed them we also computed the A matrix which had overall 12 columns. 
 
-Then, we have tried to compute $H$ by $H=AA^T$, as our A matrix had 12 columns, when we multiply it with it's transpose it will also give the same columns as $A$. After computing the $H$ matrix, we could get the $V$ by using eigenvectors and after that we could get the $P$ which is the calibration matrix. The following matrix is calibration matrix which is $3 \times 4$:
+Then, we have tried to compute $H$ by $H=AA^T$, as our A matrix had 12 columns, when we multiply it with it's transpose it will also give the same columns as $A$. After computing the $H$ matrix, we could get the $V$ by using eigen-vectors and after that we could get the $P$ which is the calibration matrix. The following matrix is calibration matrix which is $3 \times 4$:
 
 \vspace{0.5em}
 
 \centerline {
 	$ P =\left[ {\begin{array}{*{20}c}
-		71.6146 & 0.7109 & -6.2692 & 150.9350 \\
-		3.0599 & 67.8655 & -9.5590 & 198.9311 \\
-		0.0039 & 0.0017 & -0.0146 & 1.3056   
+		65.4500 & 7.1226 & -14.6073 & 283.6928 \\
+		-15.0209 & 39.2664 & 64.1435 & -1175.6065 \\
+		0.0094 & 0.0249 & -0.0506 & 1.7929   
 		\end{array} } \right] $
 }
 
@@ -1087,13 +1280,13 @@ As we know from the $Exercise$ $12$, we could find M (which is the first $3 \tim
 
  \centerline {
  	$ M =\left[ {\begin{array}{*{20}c}
- 		71.6146 & 0.7109 & -6.2692  \\
- 		3.0599 & 67.8655 & -9.5590  \\
- 		0.0039 & 0.0017 & -0.0146    
+ 		65.4500 & 7.1226 & -14.6073  \\
+ 		-15.0209 & 39.2664 & 64.1435  \\
+ 		 0.0094 & 0.0249 & -0.0506    
  		\end{array} } \right] $, $ R =\left[ {\begin{array}{*{20}c}
- 		-0.9990 & 0.0426 & -0.00005  \\
- 		-0.0426 & -0.9990 & -0.00002  \\
- 		-0.00005 & -0.00002 & 0.9999    
+ 		-0.9746 & -0.2236 & -0.0002  \\
+ 		0.2236 & -0.9746 & -0.0005  \\
+ 		-0.0001 & -0.0006 & 0.9999    
  		\end{array} } \right] $
  }
 
@@ -1105,9 +1298,9 @@ Finally, we could find the $K$ which is the following matrix:
 
 \centerline {
 	$ K =\left[ {\begin{array}{*{20}c}
-		-71.68004 & -3.60745 & 6.67155  \\
-		0.00000 & -67.77329 & 9.28266  \\
-		0.00000 & 0.00000 & -0.01409    
+		-67.1516 & 1.84118 & 28.5852  \\
+		0.00000 & -39.8647 & -59.2506  \\
+		0.00000 & 0.00000 & -0.0839    
 		\end{array} } \right] $,
 }
 
