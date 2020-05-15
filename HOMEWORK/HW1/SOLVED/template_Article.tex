@@ -841,7 +841,7 @@ As we have found the $U$ matrix, now we could get the homography $H$ by finding 
 \vspace{0.5em}
 
 \centerline {
-	$H = U_{-1} = \frac{AV_i}{\sigma _i} = \left[ {\begin{array}{*{20}c}
+	$H = U^{-1} = \frac{AV_i}{\sigma _i} = \left[ {\begin{array}{*{20}c}
 		0.4475 & −0.3066 & 0.5410 & −0.6427 \\
 		0.2008 & −0.3472 & −0.8281 & −0.3917 \\ 
 		−0.6208 & 0.4300 & −0.0210 & −0.6551 \\
@@ -867,7 +867,7 @@ Finally, we could find the class by calculating $(H^{-1})^TAH^{-1}$ which gives 
 
 As we know from our lectures, the result is circular hyperboloid. 
 \section{Homework 8 - Point Equations}
-The task here is to define the pairs of point equations for the direction and pair of plane equations for coordinate planes. Thus, for a given homogeneous coordinate system in $P3$, we have the following set of point equations that define the axes:
+The task here is to define the pairs of point equations for the direction and pair of plane equations for coordinate planes. As we know that, in $P2$ the lines and points are dual, but in $P3$ two points have 6 degree of freedom which is represented by two 4-vectors. Thus, for a given homogeneous coordinate system in $P3$, we have the following set of point equations that define the axes:
 
 As we have learned from the lecture 
 
@@ -1247,7 +1247,7 @@ b) For this exercise, we needed to find the translation vector which can be calc
 	\includegraphics[scale=0.5]{squares}
 }
 
-The idea here is to take the image of three squares and compute the K. For this, we need to take several steps. Firstly, we need to find the homography H for each square. 
+The idea here is to take the image of three squares and compute the K. For this, we need to take several steps. As we know, for implementing the simple calibration device, we used to follow the steps that showed in the book. Firstly, we need to find the homography H for each square. 
 
 Then, we need to compute the imaged circular points for the plane of that square as $H(1, \pm i, 0)^T$. 
 
@@ -1338,7 +1338,10 @@ Then, we needed to find the homographies, and we have done it also using the lib
 
 \vspace{0.5em}
 
-Then, we had to find the $\omega$ which we found by A matrix which is found by the columns of $H$ matrix. We have found the $\omega$ as:
+Then, we had to compute the imaged circular points for the plane of that square as we mentioned above. Writing $H=[h_1, h_2, h_3]$, the imaged circular points are $h_1 +ih_2$ and $h_1 - ih_2$. From those equations, we have got the P matrices.
+
+
+As the following step, we needed to fit a conic $\omega$ to the six imaged circular points. The constraint that the imaged circular points lie on $\omega$ may be written as two real constraints. Then, we had to find the $\omega$ which we found by A matrix which is found by the columns of $H$ matrix. We have found the $\omega$ as:
 
 \vspace{0.5em}
 

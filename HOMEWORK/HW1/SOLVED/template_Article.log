@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.4.16)  15 MAY 2020 23:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.4.16)  16 MAY 2020 00:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -591,25 +591,25 @@ Package pdftex.def Info: squares.png  used on input line 1248.
 (pdftex.def)             Requested size: 259.97061pt x 194.72702pt.
  [15 <./squares.png>]
 [16]
-Underfull \hbox (badness 10000) in paragraph at lines 1391--1392
+Underfull \hbox (badness 10000) in paragraph at lines 1394--1395
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1395--1396
+Underfull \hbox (badness 10000) in paragraph at lines 1398--1399
 
  []
 
 <vanishing.png, id=87, 936.49875pt x 551.81157pt>
 File: vanishing.png Graphic file (type png)
 <use vanishing.png>
-Package pdftex.def Info: vanishing.png  used on input line 1403.
+Package pdftex.def Info: vanishing.png  used on input line 1406.
 (pdftex.def)             Requested size: 374.59286pt x 220.72072pt.
 [17] [18 <./vanishing.png>] [19] (./template_Article.aux) ) 
 Here is how much of TeX's memory you used:
  12091 strings out of 492982
  250057 string characters out of 6134896
- 286195 words of memory out of 5000000
+ 286193 words of memory out of 5000000
  15430 multiletter control sequences out of 15000+600000
  9155 words of font info for 32 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -631,7 +631,7 @@ fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
 ublic/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
 msfonts/cm/cmti10.pfb>
-Output written on template_Article.pdf (19 pages, 3268605 bytes).
+Output written on template_Article.pdf (19 pages, 3269290 bytes).
 PDF statistics:
  154 PDF objects out of 1000 (max. 8388607)
  99 compressed objects within 1 object stream
