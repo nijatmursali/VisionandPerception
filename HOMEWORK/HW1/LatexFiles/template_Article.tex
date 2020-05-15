@@ -22,12 +22,13 @@ As mentioned during the video of Geometric Parameters, we needed to compute the 
 
 The idea is here space of $M_{1}$ and verifying that is 2, then computing the cross product of null space vectors and after normalizing to obtain the $x_{3} = 1$, we needed to think about the result.	
 
+\centerline {
 \begin{tikzpicture}
 \draw (-1.5, 0) coordinate(A) -- (2,0.2) coordinate (B) node [black, scale=1] {$l_{1}$};
 \draw (-1,-1) coordinate(C) -- (1.5,1.5) coordinate (D) node [black, scale=1] {$l_{2}$};
 \node[red,scale=3] at (intersection of  A--B and C--D){.};
 \end{tikzpicture}
-
+}
 Thus, we need to consider the two intersecting lines that we have seen in our lecture: 
 
 \centerline {
@@ -239,7 +240,7 @@ As we have talked in the lecture, we have:
 \vspace{0.5em}
 
 \centerline {
-	$l_1 = (0, 1, 1)^T$ and $l_2=(0,2.67,1)^T$
+	$l_1 = (0, 1, 1)^T$ and $l_2=(0,2.45,1)^T$
 }
 
 \vspace{0.5em}
@@ -249,7 +250,7 @@ These lines are parallel as they cross-product give us the following:
 \vspace{0.5em}
 
 \centerline {
-	$l_1 \times l_2 = (-1.67, 0, 0)^T$
+	$l_1 \times l_2 = (-1.45, 0, 0)^T$
 }
 
 \vspace{0.5em}
@@ -318,12 +319,11 @@ Given the last coordinate in 0, we can ascertain that the lines remain parallel 
 
 Given the two triangles formed by an arbitrary collection of lines, $l_1, l_2, l_3$ and $l_4$:
 
-
 \centerline {
-	\includegraphics[scale=0.5]{scr4}
+	\includegraphics[scale=0.3]{hw4}
 }
 
-where $l_1$ and $l_2$ are parallel. We can calculate the area $S$ of the triangles $A$ and $B$, using Heron's relation:
+where $l_1$ and $l_2$ are parallel. We also know from the first example that, we can calculate the $p_i$ as $p_1 = l_1 \times l_3$, $p_2 = l_1 \times l_4$, $p_3 = l_3 \times l_4$ and also finding $q_i$ will be as $q_1 = l_2 \times l_4$, $q_2 = l_2 \times l_3$.We can calculate the area $S$ of the triangles $A$ and $B$, using Heron's relation:
 
 \centerline {
 	$S_A = \sqrt{s(s-a)(s-b)(s-c)}$
@@ -374,12 +374,12 @@ Consider the following line $l$, tanget to the conic $C$ at the point $x$,
 	\includegraphics[scale=0.5]{scr3}
 }
 
-From this property, we know that $l = Cx$ and $x^Tl=x^TCx = 0$. Using the homography $H$ on $x$, we get $x'=Hx$, and to reverse this transformation, we can use the inverse homography $H^-1$. With the aformentioned properties, we can rewrite the equations like so:
+As we have seen in our class slides, we know that $l = Cx$ and $x^Tl=x^TCx = 0$. For this exercise, we need to show that $X^TCX=0$ that $l=Cx$. Additionally it was required to show the configuration $l^Tx=0$. Using the homography $H$ on $x$, we get $x'=Hx$, and to reverse this transformation, we can use the inverse homography $H^-1$. With the aformentioned properties, we can rewrite the equations like so:
 
 \vspace{0.5em}
 
 \centerline {
-	$x^TCx = (H^-1x')^TC(H^-1x') = 0$
+	$x^TCx = (H^{-1}x')^TC(H^{-1}x') = 0$
 }
 \vspace{0.5em}
 
@@ -388,7 +388,7 @@ this, in turn, is equivalent to :
 \vspace{0.5em}
 
 \centerline {
-	$x^TCx = x'(H^-1)^TCH^-1x' = x'C'x' = 0$.
+	$x^TCx = x'(H^{-1})^TCH^{-1}x' = x'C'x' = 0$.
 }
 
 \vspace{0.5em}
@@ -398,7 +398,7 @@ From the relation $l = Cx$, we have:
 \vspace{0.5em}
 
 \centerline {
-	$(H^-1)^Tl = (H^-1)^TCx$,
+	$(H^{-1})^Tl = (H^{-1})^TCx$,
 }
 
 \vspace{0.5em}
@@ -408,20 +408,20 @@ which can be rewritten to:
 \vspace{0.5em}
 
 \centerline {	
-	$(H^-1)^Tl = (H^-1)^TC(H^-1H)x$.
+	$(H^{-1})^Tl = (H^{-1})^TC(H^{-1}H)x$.
 }
 
 \vspace{0.5em}
 
-As we have previously seen: $C' = (H^-1)^TCH^-1$, and so the previous equation becomes:
+As we have previously seen: $C' = (H^{-1})^TCH^{-1}$, and so the previous equation becomes:
 
 \centerline {
-	$(H^-1)^Tl = C'Hx$
+	$(H^{-1})^Tl = C'Hx$
 }
 
 \vspace{0.5em}
 
-thus finally arriving at:
+which finally gives us:
 
 \vspace{0.5em}
 
@@ -429,10 +429,12 @@ thus finally arriving at:
 	$l' = C'x'$
 }
 
-which implies that $l'$ is also tangent to $C'$.
+which it shows from the equation that $l'$ is also tangent to $C'$.
 
 \section{Homework 6 - SVD for given matrix}
 As we have seen from the example, the matrix A which we out to decompose is the following: 
+
+\vspace{0.5em}
 
 \centerline{ $A = \left[ {\begin{array}{*{20}c}
 		2 & 3 & 1 \\
@@ -441,49 +443,83 @@ As we have seen from the example, the matrix A which we out to decompose is the 
 	
 The singular value decomposition (SVD) property proposes that any given matrix can be decomposed in three matrices that is:
 
+\vspace{0.5em}
+
 \centerline { $A = U \Sigma V^T$}
 
+\vspace{0.5em}
+
 where $\Sigma$ is a rectangular diagonal matrix and, $U$ and $V^T$ are orthogonal matrices. To obtain these matrices, we first compute the product $A^TA$ as following:
+
+\vspace{0.5em}
+
 
 \centerline {
 	$A^TA = (U \Sigma V^T)^T U \Sigma V^T = V (\Sigma^T \Sigma)V^T $ 
 }
+
+\vspace{0.5em}
+
+
 which will be equal to 
+
+\vspace{0.5em}
 
 \centerline{ $A^TA = \left[ {\begin{array}{*{20}c}
 		5 & 10 & 0 \\
 		10 & 25 & -5 \\ 
 		0 & -5 & 5   
-		\end{array} } \right]$ }
+		\end{array} } \right]$ 
+}
+
+\vspace{0.5em}
 	
 from this relation, we extract the eigenvalues of $A^TA$ as follows:
+
+\vspace{0.5em}
 	
 \centerline {
 	$(A^TA - I \lambda) x = 0$
 }
 
+\vspace{0.5em}
+
 in which, in order to obtain a non-trivial solution, the following property must hold:
+
+\vspace{0.5em}
 
 \centerline {
 	$det(A^TA - I \lambda) = 0$
 }
 
+\vspace{0.5em}
+
 which gives the following equation:
+
+\vspace{0.5em}
 
 \centerline {
 	$(5- \lambda) (25 - \lambda)(5 - \lambda) - 25(5 - \lambda) - 100(5 - \lambda) = 0 $
 }
 
+\vspace{0.5em}
+
 From this equation, we arrive at the following solutions: 
+
+\vspace{0.5em}
 
 \centerline {
 	$\lambda_{1} = 30$, $\lambda_{2} = 5$, $\lambda_{3} = 0$ 
 }
 
+\vspace{0.5em}
+
 To obtain the eingenvectors, we must find the vectors that lie in the null-space of the resulting matrices once
 each eigenvalue is substituted:
 
 For $\lambda = 30$: 
+
+\vspace{0.5em}
 
 \centerline{ $\left[ {\begin{array}{*{20}c}
 		-25 & 10 & 0 \\
@@ -493,15 +529,25 @@ For $\lambda = 30$:
 
 Giving us the following expressions: 
 
+\vspace{0.5em}
+
 \centerline {
 	$-25x_{1} + 10x_{2} = 0$, 
 }
+
+\vspace{0.5em}
+
 \centerline {
 	$10x_{1} - 5x_{2} - 5x_{3} =0$, 
 }
+
+\vspace{0.5em}
+
 \centerline {
 	$-5x_{2} - 25x_{3} = 0$	
 }
+
+\vspace{0.5em}
 
 from this linear set of equations, we arrive at the following solution: 
 
@@ -509,19 +555,31 @@ from this linear set of equations, we arrive at the following solution:
 	$x = [-1, -2.5, 0.5]^T$,
 }
 
+\vspace{0.5em}
+
 which is then normalized: 
+
+\vspace{0.5em}
 
 \centerline {
 	$x = [-0.3651, -0.9129, 0.1826]^T$.
 }
 
+\vspace{0.5em}
+
 Repeating the same procedure for the other eigenvalues, we arrive at: 
+
+\vspace{0.5em}
 
 \centerline {
 	$x = [-0.4472, 0, -0.8944]^T$ and $x = [0.8165, -0.4082, -0.4082]^T$
 }
 
+\vspace{0.5em}
+
 Like so, we obtain the matrix $V$, compose of the column vectors: 
+
+\vspace{0.5em}
 
 \centerline{ $V = \left[ {\begin{array}{*{20}c}
 		-0.3651 & -0.4472 & 0.8165 \\
@@ -529,8 +587,12 @@ Like so, we obtain the matrix $V$, compose of the column vectors:
 		0.1826 & -0.8944 & -0.4082   
 		\end{array} } \right]$ 
 }
+
+\vspace{0.5em}
 	
 furthemore, we also obtain the matrix $\lambda$, which is the square root of the diagonal matrix composed of the calculated eigenvalues: 
+
+\vspace{0.5em}
 
 \centerline{ $\Sigma = \left[ {\begin{array}{*{20}c}
 		\sqrt{30} & 0 & 0 \\
@@ -539,7 +601,11 @@ furthemore, we also obtain the matrix $\lambda$, which is the square root of the
 		\end{array} } \right]$ 
 }
 
+\vspace{0.5em}
+
 since the last row is a product of any above row, we can write:
+
+\vspace{0.5em}
 
 \centerline{ $\Sigma = \left[ {\begin{array}{*{20}c}
 		\sqrt{30} & 0 & 0 \\
@@ -547,13 +613,21 @@ since the last row is a product of any above row, we can write:
 		\end{array} } \right]$ 
 }
 
+\vspace{0.5em}
+
 The last step is to determine the orthonormal matrix $U$. This can be obtained by the following product:
+
+\vspace{0.5em}
 
 \centerline {
 	$AV = U \Sigma V^TV$
 } 
 
+\vspace{0.5em}
+
 where we cross out the $\Sigma V^TV$ that gives us only $AV = U$. Hence:
+
+\vspace{0.5em}
 
 \centerline{ $\left[ {\begin{array}{*{20}c}
 		2 & 3 & 1 \\
@@ -569,8 +643,11 @@ where we cross out the $\Sigma V^TV$ that gives us only $AV = U$. Hence:
 		\end{array} } \right]$ 
 }
 
+\vspace{0.5em}
+
 which gives us the following matrix $U$:
 
+\vspace{0.5em}
 \centerline {
 	$U = \left[ {\begin{array}{*{20}c}
 		-0.6 & -0.8 \\
@@ -744,8 +821,53 @@ Then, from the formula of $U_i = \frac{AV_i}{\sigma _i}$, we tried to find the $
 }
 
 
+Thus, the final $U$ will be: 
+
+\vspace{0.5em}
+
+\centerline {
+	$U = \frac{AV_i}{\sigma _i} = \left[ {\begin{array}{*{20}c}
+		0.4475 & 0.2008 & −0.6208 & −0.6115 \\
+		−0.3066 & −0.3472 & 0.4300 & −0.7749 \\ 
+		0.5410 & −0.8281 & −0.0210 & 0.1453 \\
+		−0.6427 & −0.3917 & −0.6551 & 0.0662
+		\end{array} } \right] $
+}
+
+\vspace{0.5em}
+
+As we have found the $U$ matrix, now we could get the homography $H$ by finding the inverse of $U$ which gives us:
+
+\vspace{0.5em}
+
+\centerline {
+	$H = U_{-1} = \frac{AV_i}{\sigma _i} = \left[ {\begin{array}{*{20}c}
+		0.4475 & −0.3066 & 0.5410 & −0.6427 \\
+		0.2008 & −0.3472 & −0.8281 & −0.3917 \\ 
+		−0.6208 & 0.4300 & −0.0210 & −0.6551 \\
+		−0.6115 & −0.7749 & 0.1453 & 0.0662
+		\end{array} } \right] $
+}
+
+\vspace{0.5em}
+
+Finally, we could find the class by calculating $(H^{-1})^TAH^{-1}$ which gives the following matrix: 
+
+\vspace{0.5em}
+
+\centerline {
+	$(H^{-1})^TAH^{-1} =  \left[ {\begin{array}{*{20}c}
+		-0.0152 & 0 & 0 & 0 \\
+		0 & 2.7154 & 0 & 0 \\ 
+		0 & 0 & 3.6361 & 0 \\
+		0 & 0 & 0 & 6.6637
+		\end{array} } \right] $
+}
+
+
+As we know from our lectures, the result is circular hyperboloid. 
 \section{Homework 8 - Point Equations}
-The task here is to define the pairs of point equations for the direction and pair of plane equations for coordinate planes. Thus, for a given homogeneous coordinate system in $P^3$, we have the following set of point equations that define the axes:
+The task here is to define the pairs of point equations for the direction and pair of plane equations for coordinate planes. Thus, for a given homogeneous coordinate system in $P3$, we have the following set of point equations that define the axes:
 
 As we have learned from the lecture 
 
@@ -756,7 +878,7 @@ As we have learned from the lecture
 where 
 
 \centerline {
-	$\pi ^TX = 0$ gives  $(a b c d)^T \left[ {\begin{array}{*{20}c}
+	$\pi ^TX = 0$ gives  $(a, b, c, d)^T \left[ {\begin{array}{*{20}c}
 		x_1 \\
 		x_2 \\ 
 		x_3 \\
@@ -764,21 +886,33 @@ where
 		\end{array} } \right] = 0$
 }
 
+\vspace{0.5em}
+
 \centerline {
 	$x = (1, 0, 0, 1)^T$, $y = (0, 1, 0, 1)^T$ and $z = (0, 0, 1, 1)^T$
 } 
 
+\vspace{0.5em}
+
 and the coordinate planes:
+
+\vspace{0.5em}
 
 \centerline {
 	$x - y = (0, 0, 1, 1)^T$, $y - z = (1, 0, 0, 1)^T$ and $x - z = (0, 1, 0, 1)^T$
 }
 
+\vspace{0.5em}
+
 Given the equation of the quadric used in the previous exercise:
+
+\vspace{0.5em}
 
 \centerline {
 	$X^TAX = 4x_1^2 + 4x_1x_2 - 2x_1x_3 + 2x_1x_4 + 5x_2^2 - 2x_2x_4 + 2x_3^2 + 2x_3x_4 + 2x_4^2$
 }
+
+\vspace{0.5em}
 
 which can be rewritten as: 
 
@@ -1120,10 +1254,13 @@ Then, we need to compute the imaged circular points for the plane of that square
 
 Before the last step, we need to fit a conic $\omega$ to the six imaged circular points. The constraint that the imaged circular points lie on $\omega$ may be rewritten as two real contrains. If $h_1 \pm ih_2$ lies on $\omega$ then $(h_1 \pm ih_2)^T \omega ()h_1 \pm ih_2) = 0$, and the imaginary and real parts give respectively: 
 
+\vspace{0.5em}
+
 \centerline {
 	$h_1^T \omega h_2 = 0$ and $h_1^T \omega h_1 = h_2^T \omega h_2$
 }
 
+\vspace{0.5em}
 
 which are equations linear in $\omega$. 
 
@@ -1132,6 +1269,8 @@ Finally, we need to compute the calibration $K$ from $\omega = (KK^T)-1$ using t
 \vspace{0.4em}
 
 Thus, for the first step, we used OpenCV library in order to get the corners of the squares. The points are as following:
+
+\vspace{0.5em}
 
 \centerline {
 		$S_1 =\left[ {\begin{array}{*{20}c}
@@ -1147,7 +1286,11 @@ Thus, for the first step, we used OpenCV library in order to get the corners of 
 		\end{array} } \right] $
 }
 
+\vspace{0.5em}
+
 and the last square's coordinates are: 
+
+\vspace{0.5em}
 
 \centerline {
 	$S_3 =\left[ {\begin{array}{*{20}c}
@@ -1157,6 +1300,8 @@ and the last square's coordinates are:
 		348.1797 & 362.9188 & 1.0  
 		\end{array} } \right] $
 }
+
+\vspace{0.5em}
 
 Then, we needed to find the homographies, and we have done it also using the library which gave overall three homographies. 
 
@@ -1191,6 +1336,8 @@ Then, we needed to find the homographies, and we have done it also using the lib
 		\end{array} } \right] $
 }
 
+\vspace{0.5em}
+
 Then, we had to find the $\omega$ which we found by A matrix which is found by the columns of $H$ matrix. We have found the $\omega$ as:
 
 \vspace{0.5em}
@@ -1205,6 +1352,8 @@ Then, we had to find the $\omega$ which we found by A matrix which is found by t
 		-5.32072216e-16
 		\end{array} } \right] $
 }
+
+\vspace{0.5em}
 
 Then, we have divided the $\omega$ with Numpy array into three conics and stored it into the array to find the Cholensky factorization. We have got the new matrix as following:
 
@@ -1226,8 +1375,8 @@ Finally, using the Cholensky factorization (with \textit{np.linalg}), we have co
 
 \centerline {
 	$ K =\left[ {\begin{array}{*{20}c}
-		1067.7 & -10.4 & 514.3 \\
-		0 & 1075.5 & 386.4 \\
+		1046.5 & -9.5 & 505.2 \\
+		0 & 1064.2 & 374.4 \\
 		0 & 0 & 1 
 		\end{array} } \right] $
 }
@@ -1257,7 +1406,7 @@ For example, in the following picture we have found three vanishing points.
 
 The task here was to build a reference shape for calibration as a check-board typically checker-board must not be square. One side must contain an even number of squares and the other side must contain an odd number of squares. We need to measure the dimension of the check-board square. 
 
-Using the harry corner detector, we first found the corners and added them into our code for further computation. At this stage, we get the matrix as following: 
+Using the harry corner detector, we first found the corners and added them into our code for further computation. For our example, we have taken overall 8 points as shown in the following matrix where first row shows the $x$ axis and second row shows the $y$ axis. As the checker-board is in 2D we don't care about z-axis. At this stage, we get the matrix as following: 
 
 \vspace{0.5em}
 
@@ -1271,7 +1420,7 @@ Using the harry corner detector, we first found the corners and added them into 
 
 \vspace{0.5em}
 
-When we normalize the matrices (by checking for ratios), we get the following results: 
+When we normalize the matrices (by checking them with the ruler as mentioned in class), we get the following results: 
 
 \vspace{0.5em}
 

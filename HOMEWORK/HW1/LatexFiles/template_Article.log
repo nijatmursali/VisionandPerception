@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.4.16)  15 MAY 2020 17:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.4.16)  15 MAY 2020 23:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -445,7 +445,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (52.70988pt too wide) in paragraph at lines 92--96
+Overfull \hbox (52.70988pt too wide) in paragraph at lines 93--97
 []$\OML/cmm/m/it/10 M[] \OT1/cmr/m/n/10 = (0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 2
 210\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 2751\O
 ML/cmm/m/it/10 ; \OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cm
@@ -459,7 +459,7 @@ mr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 2974)[]$
  []
 
 
-Overfull \hbox (31.5988pt too wide) in paragraph at lines 97--98
+Overfull \hbox (31.5988pt too wide) in paragraph at lines 98--99
 []$\OML/cmm/m/it/10 M[] \OT1/cmr/m/n/10 = (0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 
 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 8944 \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 0\
 OML/cmm/m/it/10 :\OT1/cmr/m/n/10 4472) \OMS/cmsy/m/n/10 ^^B \OT1/cmr/m/n/10 (\O
@@ -475,32 +475,32 @@ n/10 3904\OML/cmm/m/it/10 ; \OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 0\OML/cmm/m/it/
 <scr2.png, id=20, 337.26pt x 269.50688pt>
 File: scr2.png Graphic file (type png)
 <use scr2.png>
-Package pdftex.def Info: scr2.png  used on input line 134.
+Package pdftex.def Info: scr2.png  used on input line 135.
 (pdftex.def)             Requested size: 168.62958pt x 134.7531pt.
 [2 <./scr2.png>]
 <scr1.png, id=26, 341.02406pt x 280.79906pt>
 File: scr1.png Graphic file (type png)
 <use scr1.png>
-Package pdftex.def Info: scr1.png  used on input line 166.
+Package pdftex.def Info: scr1.png  used on input line 167.
 (pdftex.def)             Requested size: 170.51161pt x 140.39919pt.
 <src.png, id=27, 1003.75pt x 668.4975pt>
 File: src.png Graphic file (type png)
 <use src.png>
-Package pdftex.def Info: src.png  used on input line 176.
+Package pdftex.def Info: src.png  used on input line 177.
 (pdftex.def)             Requested size: 401.49289pt x 267.39426pt.
  [3 <./scr1.png>] [4 <./src.png>]
 <out.png, id=37, 1003.75pt x 671.50874pt>
 File: out.png Graphic file (type png)
 <use out.png>
-Package pdftex.def Info: out.png  used on input line 228.
+Package pdftex.def Info: out.png  used on input line 229.
 (pdftex.def)             Requested size: 401.49289pt x 268.59874pt.
  [5 <./out.png>]
-<scr4.png, id=42, 472.76625pt x 263.48438pt>
-File: scr4.png Graphic file (type png)
-<use scr4.png>
-Package pdftex.def Info: scr4.png  used on input line 324.
-(pdftex.def)             Requested size: 236.38254pt x 131.74185pt.
- [6 <./scr4.png>]
+<hw4.png, id=42, 723.45282pt x 441.90094pt>
+File: hw4.png Graphic file (type png)
+<use hw4.png>
+Package pdftex.def Info: hw4.png  used on input line 324.
+(pdftex.def)             Requested size: 217.03752pt x 132.5713pt.
+ [6 <./hw4.png>]
 <scr3.png, id=47, 526.21594pt x 333.49594pt>
 File: scr3.png Graphic file (type png)
 <use scr3.png>
@@ -519,39 +519,101 @@ Missing character: There is no ’ in font cmr10!
 Missing character: There is no â in font cmr10!
 Missing character: There is no ˆ in font cmr10!
 Missing character: There is no ’ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no ˆ in font cmr10!
+Missing character: There is no ’ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no ˆ in font cmr10!
+Missing character: There is no ’ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no ˆ in font cmr10!
+Missing character: There is no ’ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no ˆ in font cmr10!
+Missing character: There is no ’ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no ˆ in font cmr10!
+Missing character: There is no ’ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no ˆ in font cmr10!
+Missing character: There is no ’ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no ˆ in font cmr10!
+Missing character: There is no ’ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no ˆ in font cmr10!
+Missing character: There is no ’ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no ˆ in font cmr10!
+Missing character: There is no ’ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no ˆ in font cmr10!
+Missing character: There is no ’ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no ˆ in font cmr10!
+Missing character: There is no ’ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no ˆ in font cmr10!
+Missing character: There is no ’ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no ˆ in font cmr10!
+Missing character: There is no ’ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no ˆ in font cmr10!
+Missing character: There is no ’ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no ˆ in font cmr10!
+Missing character: There is no ’ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no ˆ in font cmr10!
+Missing character: There is no ’ in font cmr10!
  [11]
+Missing character: There is no â in font cmr10!
+Missing character: There is no ˆ in font cmr10!
+Missing character: There is no ’ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no ˆ in font cmr10!
+Missing character: There is no ’ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no ˆ in font cmr10!
+Missing character: There is no ’ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no ˆ in font cmr10!
+Missing character: There is no ’ in font cmr10!
+ [12]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 886.
- [12] [13]
-<squares.png, id=76, 519.9425pt x 389.455pt>
+(Font)              <14.4> on input line 1020.
+ [13] [14]
+<squares.png, id=79, 519.9425pt x 389.455pt>
 File: squares.png Graphic file (type png)
 <use squares.png>
-Package pdftex.def Info: squares.png  used on input line 1114.
+Package pdftex.def Info: squares.png  used on input line 1248.
 (pdftex.def)             Requested size: 259.97061pt x 194.72702pt.
- [14 <./squares.png>] [15]
-Underfull \hbox (badness 10000) in paragraph at lines 1242--1243
+ [15 <./squares.png>]
+[16]
+Underfull \hbox (badness 10000) in paragraph at lines 1391--1392
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1246--1247
+Underfull \hbox (badness 10000) in paragraph at lines 1395--1396
 
  []
 
-<vanishing.png, id=84, 936.49875pt x 551.81157pt>
+<vanishing.png, id=87, 936.49875pt x 551.81157pt>
 File: vanishing.png Graphic file (type png)
 <use vanishing.png>
-Package pdftex.def Info: vanishing.png  used on input line 1254.
+Package pdftex.def Info: vanishing.png  used on input line 1403.
 (pdftex.def)             Requested size: 374.59286pt x 220.72072pt.
-[16] [17 <./vanishing.png>] [18] (./template_Article.aux) ) 
+[17] [18 <./vanishing.png>] [19] (./template_Article.aux) ) 
 Here is how much of TeX's memory you used:
  12091 strings out of 492982
- 250062 string characters out of 6134896
- 287195 words of memory out of 5000000
+ 250057 string characters out of 6134896
+ 286195 words of memory out of 5000000
  15430 multiletter control sequences out of 15000+600000
  9155 words of font info for 32 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,19n,68p,559b,510s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,19n,68p,559b,517s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-
 dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texmf-dist/fo
@@ -569,10 +631,10 @@ fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
 ublic/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
 msfonts/cm/cmti10.pfb>
-Output written on template_Article.pdf (18 pages, 3277780 bytes).
+Output written on template_Article.pdf (19 pages, 3268605 bytes).
 PDF statistics:
- 150 PDF objects out of 1000 (max. 8388607)
- 96 compressed objects within 1 object stream
+ 154 PDF objects out of 1000 (max. 8388607)
+ 99 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  53 words of extra memory for PDF output out of 10000 (max. 10000000)
 
